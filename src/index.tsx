@@ -1,0 +1,1 @@
+export { CupertinoTabsView } from './CupertinoTabsView';

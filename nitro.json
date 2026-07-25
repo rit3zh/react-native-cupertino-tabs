@@ -1,0 +1,23 @@
+{
+  "cxxNamespace": ["cupertinotabs"],
+  "ios": {
+    "iosModuleName": "CupertinoTabs"
+  },
+  "android": {
+    "androidNamespace": ["cupertinotabs"],
+    "androidCxxLibName": "cupertinotabs"
+  },
+  "autolinking": {
+    "CupertinoTabs": {
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "HybridCupertinoTabs"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridCupertinoTabs"
+      }
+    }
+  },
+  "ignorePaths": ["node_modules"]
+}
