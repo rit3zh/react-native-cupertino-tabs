@@ -90,24 +90,26 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turborepo-ios-
 
-      - name: Check turborepo cache for iOS
-        run: |
-          TURBO_CACHE_STATUS=$(node -p "($(yarn turbo run build:ios --cache-dir="${{ env.TURBO_CACHE_DIR }}" --dry=json)).tasks.find(t => t.task === 'build:ios').cache.status")
-
-          if [[ $TURBO_CACHE_STATUS == "HIT" ]]; then
-            echo "turbo_cache_hit=1" >> $GITHUB_ENV
-          fi
-
       - name: Use appropriate Xcode version
-        if: env.turbo_cache_hit != 1
         uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd # v1.6.0
         with:
           xcode-version: ${{ env.XCODE_VERSION }}
 
+      # example/ios is not committed — expo generates it, and pod install turns
+      # it into the .xcworkspace that build:ios opens. This must run every time:
+      # it is also a turbo input for build:ios, so gating it on that task's cache
+      # status asks the hash to describe a directory the step has not created yet.
       - name: Prebuild expo app for iOS
-        if: env.turbo_cache_hit != 1
         run: |
           yarn example expo prebuild --platform ios
+
+      - name: Verify the Xcode workspace was generated
+        run: |
+          if [[ ! -d example/ios/CupertinoTabsExample.xcworkspace ]]; then
+            echo "::error::expo prebuild did not produce example/ios/CupertinoTabsExample.xcworkspace"
+            ls -la example/ios || echo "example/ios does not exist"
+            exit 1
+          fi
 
       - name: Build example for iOS
         run: |
