@@ -25,6 +25,9 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
 
+      - name: Generate nitrogen code
+        run: yarn nitrogen
+
       - name: Lint files
         run: yarn lint
 
@@ -40,6 +43,9 @@ jobs:
 
       - name: Setup
         uses: ./.github/actions/setup
+
+      - name: Generate nitrogen code
+        run: yarn nitrogen
 
       - name: Run unit tests
         run: yarn test --maxWorkers=2 --coverage
