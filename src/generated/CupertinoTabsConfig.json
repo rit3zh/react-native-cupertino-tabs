@@ -1,0 +1,24 @@
+{
+  "uiViewClassName": "CupertinoTabs",
+  "supportsRawText": false,
+  "bubblingEventTypes": {},
+  "directEventTypes": {},
+  "validAttributes": {
+    "items": true,
+    "selectedIndex": true,
+    "width": true,
+    "height": true,
+    "backgroundColor": true,
+    "selectedBackgroundColor": true,
+    "cornerRadius": true,
+    "activeTintColor": true,
+    "inactiveTintColor": true,
+    "direction": true,
+    "gap": true,
+    "iconSize": true,
+    "apportionsSegmentWidthsByContent": true,
+    "hapticFeedback": true,
+    "onChange": true,
+    "hybridRef": true
+  }
+}

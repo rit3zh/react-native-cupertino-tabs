@@ -4,7 +4,7 @@ import type {
   ICupertinoTabsProps,
 } from '../../interfaces/native.interface';
 
-const CupertinoTabsConfig = require('../../../nitrogen/generated/shared/json/CupertinoTabsConfig.json');
+const CupertinoTabsConfig = require('../../generated/CupertinoTabsConfig.json');
 
 const NativeCupertinoTabsView = getHostComponent<
   ICupertinoTabsProps,

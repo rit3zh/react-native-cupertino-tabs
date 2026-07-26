@@ -30,8 +30,8 @@
   "scripts": {
     "example": "yarn workspace react-native-cupertino-tabs-example",
     "clean": "del-cli lib",
-    "prepare": "bob build",
-    "nitrogen": "nitrogen",
+    "prepare": "yarn nitrogen && bob build",
+    "nitrogen": "nitrogen && node ./scripts/sync-nitro-config.mjs",
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "test": "jest",
@@ -99,13 +99,6 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      [
-        "custom",
-        {
-          "script": "nitrogen",
-          "clean": "nitrogen/"
-        }
-      ],
       [
         "module",
         {
