@@ -1,8 +1,10 @@
-<img width="1010" height="336" alt="poster" src="https://github.com/user-attachments/assets/28c103d1-5c20-4ce4-acfa-fc19d51c2fba" />
+![Cupertino Tabs](https://github.com/user-attachments/assets/28c103d1-5c20-4ce4-acfa-fc19d51c2fba)
 
 # Cupertino Tabs
 
 A native iOS segmented tab bar for React Native, built on `UISegmentedControl`.
+
+[▶ Watch the demo](https://github.com/user-attachments/assets/ed6c2c18-b414-419b-8320-dcdf7ccfcc74)
 
 ## Installation
 
@@ -40,10 +42,6 @@ export default function Example() {
   );
 }
 ```
-
-## Demo
-
-https://github.com/user-attachments/assets/ed6c2c18-b414-419b-8320-dcdf7ccfcc74
 
 Both import styles work:
 
