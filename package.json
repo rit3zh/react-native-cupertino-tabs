@@ -6,7 +6,7 @@
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
     ".": {
-      "react-native-cupertino-tabs-source": "./src/index.tsx",
+      "react-native-cupertino-tabs-source": "./src/index.ts",
       "types": "./lib/typescript/src/index.d.ts",
       "default": "./lib/module/index.js"
     },
@@ -15,7 +15,6 @@
   "files": [
     "src",
     "lib",
-    "android",
     "ios",
     "cpp",
     "nitrogen",
@@ -23,11 +22,6 @@
     "*.podspec",
     "react-native.config.js",
     "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
@@ -41,12 +35,14 @@
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "test": "jest",
+    "publish:npm": "./scripts/publish-npm.sh",
+    "publish:npm:dry": "./scripts/publish-npm.sh --dry-run",
+    "push:github": "./scripts/push-github.sh",
     "release": "release-it --only-version"
   },
   "keywords": [
     "react-native",
-    "ios",
-    "android"
+    "ios"
   ],
   "repository": {
     "type": "git",
@@ -143,6 +139,9 @@
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
+    ],
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
     ]
   },
   "commitlint": {
@@ -179,5 +178,8 @@
       "release-it"
     ],
     "version": "0.63.0"
+  },
+  "dependencies": {
+    "sf-symbols-typescript": "^2.2.0"
   }
 }

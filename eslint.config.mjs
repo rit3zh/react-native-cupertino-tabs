@@ -24,6 +24,13 @@ export default defineConfig([
     },
   },
   {
+    // Jest's globals are injected by the runner, not imported.
+    files: ['jest.setup.js', '**/__tests__/**'],
+    languageOptions: {
+      globals: { jest: 'readonly' },
+    },
+  },
+  {
     ignores: ['node_modules/', 'lib/'],
   },
 ]);

@@ -1,0 +1,1 @@
+export { TabsLabel } from './TabsLabel';

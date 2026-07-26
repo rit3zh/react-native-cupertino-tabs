@@ -1,0 +1,1 @@
+export { TabsTrigger } from './TabsTrigger';
